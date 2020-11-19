@@ -1,5 +1,5 @@
 # define flag to determine the kernel
-TARGET_KERNEL_VERSION := $(shell ls kernel | grep "msm-*" | sed 's/msm-//')
+TARGET_KERNEL_VERSION ?= $(shell ls kernel | grep "msm-*" | sed 's/msm-//')
 
 # Set TARGET_USES_NEW_ION for 4.14 and higher kernels
 ifeq ($(TARGET_KERNEL_VERSION),$(filter $(TARGET_KERNEL_VERSION),3.18 4.4 4.9))
@@ -1213,7 +1213,6 @@ PRODUCT_PACKAGES_DEBUG += \
 
 PRODUCT_PACKAGES += liboemaids_system
 PRODUCT_PACKAGES += liboemaids_vendor
-PRODUCT_PACKAGES += android.hardware.health@2.0-service
 
 # framework detect libs
 PRODUCT_PACKAGES += libvndfwk_detect_jni.qti

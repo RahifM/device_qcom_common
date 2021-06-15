@@ -433,7 +433,7 @@ case "$target" in
                  KernelVersionB=${KernelVersionS%.*}
 
                  if [ $KernelVersionA -ge 4 ] && [ $KernelVersionB -ge 14 ]; then
-                     setprop ctl.vendor.qrtrns_enable 1
+                     setprop init.svc.vendor.qrtrns.enable 1
                  fi
                  ;;
            esac
@@ -487,6 +487,14 @@ esac
 
 case "$product" in
         "msmnile_gvmq")
+         setprop vendor.display.lcd_density 160
+         ;;
+        *)
+        ;;
+esac
+
+case "$product" in
+        "msmnile_gvmgh")
          setprop vendor.display.lcd_density 160
          ;;
         *)
